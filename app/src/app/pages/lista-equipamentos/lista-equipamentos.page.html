@@ -3,8 +3,8 @@
 </ion-header>
 <ion-content #popover>
   <div *ngFor="let equipamento of equipamentos">
-    <ion-item *ngIf="searchRout(equipamento)">
-      <ion-label class="ion-text-wrap" (click)="dismiss(equipamento)">
+    <ion-item *ngIf="searchRout(equipamento)" class="ion-padding">
+      <ion-label class="ion-text-wrap ion-margin-start" (click)="dismiss(equipamento)">
         {{equipamento.nome}}</ion-label>
     </ion-item>
   </div>

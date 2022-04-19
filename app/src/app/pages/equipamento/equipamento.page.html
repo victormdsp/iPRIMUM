@@ -1,18 +1,18 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Rota do equipamento {{equipamento.nome}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-title>Informações do equipamento:</ion-card-title>
+  <ion-card class="ion-padding">
+    <ion-card-title class="ion-margin-bottom">Informações do equipamento:</ion-card-title>
     <ion-card-subtitle>Nome do equipamento: {{equipamento.nome}}</ion-card-subtitle>
     <ion-card-subtitle>Tag do equipamento: {{equipamento.tag}}</ion-card-subtitle>
   </ion-card>
 
   <ion-card>
-    <ion-list>
+    <ion-list [ngClass]='{"preenchido": temperaturaObrigatorio}'>
       <ion-radio-group (ionChange)='changeInspecao("temperatura", $event.target.value)'>
         <ion-list-header>Temperatura</ion-list-header>
 
@@ -28,11 +28,12 @@
       </ion-radio-group>
     </ion-list>
 
-    <ion-textarea *ngIf="temperatura == 'anormal'" autoGrow=true (change)="observacao('temperatura', $event.target.value)" [ngClass]='{"preenchido": temperaturaObrigatorio}'></ion-textarea>
+    <ion-textarea *ngIf="temperatura == 'anormal'" autoGrow=true [(ngModel)]="temperaturaObs"
+      (input)="observacao('temperatura', $event.target.value)"></ion-textarea>
   </ion-card>
 
   <ion-card>
-    <ion-list>
+    <ion-list [ngClass]='{"preenchido": pressaoObrigatorio}'>
       <ion-radio-group (ionChange)='changeInspecao("pressao", $event.target.value)'>
         <ion-list-header>Pressão</ion-list-header>
 
@@ -47,10 +48,15 @@
 
       </ion-radio-group>
     </ion-list>
+
+    <ion-textarea *ngIf="pressao == 'anormal'" autoGrow=true [(ngModel)]="pressaoObs"
+      (input)="observacao('pressao', $event.target.value)">
+    </ion-textarea>
+
   </ion-card>
 
   <ion-card>
-    <ion-list>
+    <ion-list [ngClass]='{"preenchido": oleoObrigatorio}'>
       <ion-radio-group (ionChange)='changeInspecao("oleo", $event.target.value)'>
         <ion-list-header>Nível de óleo</ion-list-header>
 
@@ -65,13 +71,18 @@
 
       </ion-radio-group>
     </ion-list>
+
+    <ion-textarea *ngIf="oleo == 'anormal'" autoGrow=true [(ngModel)]="oleoObs"
+      (input)="observacao('oleo', $event.target.value)">
+    </ion-textarea>
+
   </ion-card>
 
 </ion-content>
 
 <ion-footer>
-  <ion-buttons class="ion-justify-content-center ion-align-item-center" (click)="finalizar()">
-    <ion-button>
+  <ion-buttons class="ion-justify-content-center ion-align-item-center">
+    <ion-button (click)="finalizar()">
       <ion-icon name="arrow-back" class="ion-margin-end"></ion-icon>
       Voltar
     </ion-button>

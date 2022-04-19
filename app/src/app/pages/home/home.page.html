@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Seleção de equipamento</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
-    <ion-item button>
+    <ion-item button (click)="qrScanner()">
       <ion-icon name="qr-code-outline" class="ion-margin-end"></ion-icon>
       <ion-label class="ion-text-wrap">Escanear QR code do equipamento</ion-label>
     </ion-item>
@@ -18,4 +18,12 @@
 
   </ion-card>
 
+  <span (click)="teste()">Clica para enviar o dado teste</span>
+
 </ion-content>
+
+<ion-footer>
+  <ion-buttons class="ion-justify-content-center">
+    <ion-button (click)="finalizar()">Finalizar Rota</ion-button>
+  </ion-buttons>
+</ion-footer>

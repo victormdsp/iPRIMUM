@@ -30,7 +30,6 @@ export class LoginPage implements OnInit {
 
   public async logar(){
     const login = await this.requestCtrl.requestLogin(this.login, this.senha)
-    console.log(login)
     this.route.navigate(['/home'], {state: {token: login}});
   }
 

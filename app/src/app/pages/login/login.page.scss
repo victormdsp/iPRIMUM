@@ -2,10 +2,19 @@
 
 ion-input{
     --placeholder-color: #444;
-    --background: #ffffff;
+    --background: #ccc;
 }
 
 ion-button{
-    background: #444;
+    background: #ccc;
     border-radius: .5em;
+}
+
+ion-footer{
+    display: flex;
+    background: #428cff;
+}
+
+ion-label{
+    color: #ffffff;
 }
