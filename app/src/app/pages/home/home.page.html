@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Seleção de equipamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item button>
+      <ion-icon name="qr-code-outline" class="ion-margin-end"></ion-icon>
+      <ion-label class="ion-text-wrap">Escanear QR code do equipamento</ion-label>
+    </ion-item>
+
+    <ion-item button id="popoverButton" (click)='createPopover()'>
+      <ion-icon name="list" class="ion-margin-end"></ion-icon>
+      <ion-label class="ion-text-wrap">Abrir lista de equipamentos</ion-label>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-searchbar showCancelButton="always" [(ngModel)]='search'></ion-searchbar>
+</ion-header>
+<ion-content #popover>
+  <div *ngFor="let equipamento of equipamentos">
+    <ion-item *ngIf="searchRout(equipamento)">
+      <ion-label class="ion-text-wrap" (click)="dismiss(equipamento)">
+        {{equipamento.nome}}</ion-label>
+    </ion-item>
+  </div>
+</ion-content>

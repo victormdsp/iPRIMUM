@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rota do equipamento {{equipamento.nome}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-title>Informações do equipamento:</ion-card-title>
+    <ion-card-subtitle>Nome do equipamento: {{equipamento.nome}}</ion-card-subtitle>
+    <ion-card-subtitle>Tag do equipamento: {{equipamento.tag}}</ion-card-subtitle>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-radio-group (ionChange)='changeInspecao("temperatura", $event.target.value)'>
+        <ion-list-header>Temperatura</ion-list-header>
+
+        <ion-item>
+          <ion-label>Normal</ion-label>
+          <ion-radio value="normal"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Anormal</ion-label>
+          <ion-radio value="anormal"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-textarea *ngIf="temperatura == 'anormal'" autoGrow=true (change)="observacao('temperatura', $event.target.value)" [ngClass]='{"preenchido": temperaturaObrigatorio}'></ion-textarea>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-radio-group (ionChange)='changeInspecao("pressao", $event.target.value)'>
+        <ion-list-header>Pressão</ion-list-header>
+
+        <ion-item>
+          <ion-label>Normal</ion-label>
+          <ion-radio value="normal"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Anormal</ion-label>
+          <ion-radio value="anormal"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-radio-group (ionChange)='changeInspecao("oleo", $event.target.value)'>
+        <ion-list-header>Nível de óleo</ion-list-header>
+
+        <ion-item>
+          <ion-label>Normal</ion-label>
+          <ion-radio value="normal"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Anormal</ion-label>
+          <ion-radio value="anormal"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+    </ion-list>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-buttons class="ion-justify-content-center ion-align-item-center" (click)="finalizar()">
+    <ion-button>
+      <ion-icon name="arrow-back" class="ion-margin-end"></ion-icon>
+      Voltar
+    </ion-button>
+
+    <ion-button (click)="finalizar(equipamento)"> Finalizar
+      <ion-icon name="checkmark" class="ion-margin-start"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-footer>

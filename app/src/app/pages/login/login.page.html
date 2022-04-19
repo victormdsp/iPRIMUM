@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class='ion-text-center'>iPRIMUM</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-input type="text" placeholder="Usuário" (change)='changeLogin($event.target.value)' [(ngModel)]='login'></ion-input>
+    <ion-input type="password" placeholder="Senha" (change)='changePassword($event.target.value)' [(ngModel)]='password'></ion-input>
+  </ion-card>
+
+  <ion-buttons class="ion-justify-content-center ion-align-item-center" (click)='logar()'>
+    <ion-button color='primary'>
+      <ion-icon name='log-in'></ion-icon>
+      Login
+    </ion-button>
+  </ion-buttons>
+
+</ion-content>
+
+<ion-footer>
+
+</ion-footer>
