@@ -27,11 +27,6 @@ export class HomePage implements OnInit {
     private barCode: BarcodeScanner
   ) { }
 
-  async teste(){
-    const res = await this.requestCtrl.sendAnswer({}, this.token);
-    console.log(res);
-  }
-
   async ngOnInit() {
     this.token = history.state.token.token;
     this.equipamentos = await this.requestCtrl.requestEquipaments(this.token)
